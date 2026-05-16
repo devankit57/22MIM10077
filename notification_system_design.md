@@ -33,7 +33,7 @@ For now, polling via REST keeps things simple. In production, you'd swap this ou
 
 ## Stage 2 : Database Design
 
-PostgreSQL made the most sense here. Notifications need filtering by type, sorting by date, and fast reads by student — all things Postgres handles well.
+PostgreSQL made the most sense here. Notifications need filtering by type, sorting by date, and fast reads by student  all things Postgres handles well.
 
 ### Schema
 
@@ -65,7 +65,7 @@ ON notifications(student_id, is_read, created_at DESC);
 
 This covers the three most common query patterns in one shot  filter by student, filter by read status, sort by newest.
 
-### Example — Placement Notifications (Last 7 Days)
+### Example : Placement Notifications (Last 7 Days)
 
 ```sql
 SELECT DISTINCT student_id
@@ -82,10 +82,10 @@ WHERE type = 'placement'
 
 A few things that'll matter once traffic picks up:
 
-- **Pagination** — don't load everything at once, use `page` + `limit`
-- **Redis caching** — cache the last N notifications per student, invalidate on write
-- **Lazy loading** — load older notifications only when the user scrolls
-- **WebSockets** — push updates instead of polling
+- **Pagination** : `page` + `limit`
+- **Redis caching** 
+- **Lazy loading** 
+- **WebSockets** 
 
 ```
 GET /notifications?page=1&limit=10
@@ -95,15 +95,15 @@ Redis TTL of ~60s on notification lists is usually a good starting point. Invali
 
 
 
-## Stage 5 : Large Scale Delivery
+## Stage 5 : Scaling
 
 Sending notifications one by one in a loop doesn't work at 10k+ students. You need a queue.
 
 ### Stack
 
-- **BullMQ** — job queue built on Redis
-- **Redis** — backs the queue
-- **Worker processes** — consume jobs in parallel
+- **BullMQ** : job queue built on Redis
+- **Redis** : backs the queue
+- **Worker processes** : consume jobs in parallel
 
 Each notification is pushed as a job. Workers pick them up, send them, and retry on failure. This also gives you visibility into failed deliveries, which is useful for debugging.
 
@@ -146,7 +146,7 @@ Created with Next.js, TypeScript, and Tailwind. Nothing fancy dependency-wise.
 ### Features
 
 - Priority inbox with sorted notifications
-- Filter tabs — All / Placement / Result / Event
+- Filter tabs : All / Placement / Result / Event
 - Unread indicator bar per card
 - Type badges with color coding
 - Skeleton loading state
