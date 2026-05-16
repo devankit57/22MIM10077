@@ -1,6 +1,6 @@
 # Notification System Design
 
-A campus notification system built to deliver placement updates, event alerts, and results to students. This doc covers how it's designed end to end — from API to frontend.
+A campus notification system built to deliver placement updates, event alerts, and results to students. This doc covers how it's designed end to end  from API to frontend.
 
 ---
 
