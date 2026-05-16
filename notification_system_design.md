@@ -139,7 +139,9 @@ Each notification gets a score at query time:
 
 ## Stage 7 : Frontend
 
-Built with Next.js, TypeScript, and Tailwind. Nothing fancy dependency-wise.
+Created with Next.js, TypeScript, and Tailwind. Nothing fancy dependency-wise.
+
+<img src="https://i.ibb.co/jkqP77r1/ss1.png">
 
 ### Features
 
