@@ -29,7 +29,7 @@ Create a new notification (admin/system use).
 
 For now, polling via REST keeps things simple. In production, you'd swap this out for WebSockets so students get updates instantly without refreshing.
 
-
+<img src="https://i.ibb.co/SXPLqRGK/ss2.png">
 
 ## Stage 2 : Database Design
 
